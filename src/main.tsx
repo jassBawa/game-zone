@@ -21,7 +21,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <QueryClientProvider client={client}>
         <GlobalAnalyticsTracker />
-        <PageViewTracker />
         <RouterProvider router={router} />
         <ReactQueryDevtools />
       </QueryClientProvider>
