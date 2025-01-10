@@ -8,21 +8,20 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes";
 import ReactGA from "react-ga4";
+import GlobalAnalyticsTracker from "./GlobalAnalyticsTracker";
+import PageViewTracker from "./PageViewTracker";
 
 const client = new QueryClient();
 
 ReactGA.initialize('G-KCVZ9QZK65')
-
-ReactGA.send({
-  hitType: 'pageview',
-  page: window.location.pathname
-})
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <QueryClientProvider client={client}>
+        <GlobalAnalyticsTracker />
+        <PageViewTracker />
         <RouterProvider router={router} />
         <ReactQueryDevtools />
       </QueryClientProvider>

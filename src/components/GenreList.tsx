@@ -36,6 +36,7 @@ const GenreList = () => {
                 src={getCroppedImageUrl(genre.image_background)}
               />
               <Button
+                data-analytics="Genre Selection"
                 whiteSpace="normal"
                 textAlign="left"
                 fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
